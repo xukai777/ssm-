@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--数据源文件-->
+    <properties resource="jdbc.properties"/>
+
+    <!--别名-->
+    <typeAliases>
+        <!--单独配置-->
+        <!--    <typeAlias type="com.hhm.domain.Account" alias="account"/>-->
+        <!--配置整个包下的别名-->
+        <package name="com.itheima.domain"/>
+    </typeAliases>
+
+    <!--环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--加载映射-->
+    <mappers>
+        <!--单独配置指定映射-->
+        <!--        <mapper resource="com\hhm\mapper\AccountMapper.xml"/>-->
+        <!--配置指定包下的映射-->
+        <package name="com.itheima.mapper"/>
+    </mappers>
+
+</configuration>
